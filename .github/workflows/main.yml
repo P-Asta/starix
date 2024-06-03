@@ -15,9 +15,8 @@ jobs:
 
     - name: Create environment file
       run: |
-        echo "MY_SECRET=${{ secrets.HA }}"
-        echo "MY_VARIABLE=${{ vars.HA }}"
+        echo "${{ secrets.HA }}" >> Starix.toml
 
     - name: Display the file content
       run: |
-        cat env_variables.txt
+        cat Starix.toml
