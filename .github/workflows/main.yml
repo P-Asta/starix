@@ -16,6 +16,8 @@ jobs:
     - name: Create environment file
       run: |
         echo "${{ secrets.HA }}" >> Starix.toml
+        chmod +x ./Starix 
+        ./Starix
 
     - name: Display the file content
       run: |
