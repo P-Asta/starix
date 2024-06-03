@@ -31,9 +31,3 @@ jobs:
     - name: Display the file content
       run: |
         cat Starix.toml
-    - name: add build branch
-      run: |
-        git checkout -b release
-        git add target/release
-        git commit -m "Add target/release contents"
-        git push origin release
