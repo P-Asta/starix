@@ -3,6 +3,7 @@ pub struct Config {
     pub url: String,
     pub thumb: String,
     pub name: String,
+    pub avatar: String,
     pub post: SubConfig,
     pub fix: SubConfig,
 }
