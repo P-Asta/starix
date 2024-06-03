@@ -31,3 +31,7 @@ jobs:
     - name: Display the file content
       run: |
         cat Starix.toml
+    - name: add build branch
+       with:
+          branch: gh-pages
+          folder: target/release;
