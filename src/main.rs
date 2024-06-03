@@ -30,7 +30,11 @@ async fn main() {
         .arg("-1")
         .output()
         .unwrap();
-    let commit_title = String::from_utf8_lossy(&comment.stdout);
+    let commit_title = String::from_utf8(comment.stdout)
+        .unwrap()
+        .trim()
+        .to_string();
+
     println!("comment: {:?}", commit_title);
     match Token::parse(commit_title.to_string()) {
         Token::Post(identifire, description) => {
