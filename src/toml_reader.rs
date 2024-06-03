@@ -1,9 +1,9 @@
 #[derive(serde::Deserialize, Debug)]
 pub struct Config {
-    webhook: Webhook,
+    pub webhook: Webhook,
 }
 
 #[derive(serde::Deserialize, Debug)]
 pub struct Webhook {
-    uri: String,
+    pub uri: String,
 }
