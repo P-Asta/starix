@@ -15,8 +15,8 @@ jobs:
 
     - name: Create environment file
       run: |
-        echo "MY_SECRET=${{ secrets.HA }}" >> env_variables.txt
-        echo "MY_VARIABLE=${{ vars.HA }}" >> env_variables.txt
+        echo "MY_SECRET=${{ secrets.HA }}"
+        echo "MY_VARIABLE=${{ vars.HA }}"
 
     - name: Display the file content
       run: |
