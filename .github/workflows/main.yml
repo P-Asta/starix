@@ -32,6 +32,9 @@ jobs:
       run: |
         cat Starix.toml
     - name: add build branch
-       with:
-          branch: gh-pages
-          folder: target/release;
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: gh-pages
+        folder: target/release;
+        clean: true
+        single-commit: true
