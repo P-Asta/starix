@@ -7,26 +7,25 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    
-    - name: Install Rust
-      uses: actions-rs/toolchain@v1
-      with:
-        toolchain: stable
-        override: true
-    - name: Build the project
+    - name: download file
       run: |
-        cargo build --release
-
+        wget "https://f.5-23.dev/project/starix"
+        chmod +x starix
+    # - name: Install Rust
+    #   uses: actions-rs/toolchain@v1
+    #   with:
+    #     toolchain: stable
+    #     override: true
     - name: Create environment file
       run: |
         export URI="${{ secrets.URI }}"
-        ./target/release/starix
+        ./starix
 
     - name: Display the file content
       run: |
