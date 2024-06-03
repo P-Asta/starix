@@ -14,6 +14,7 @@ async fn main() {
                 url: "https://github.com/5-23".to_string(),
                 thumb: "".to_string(),
                 name: "Asta".to_string(),
+                avatar: "https://avatars.githubusercontent.com/u/86705803?v=4".to_string(),
                 post: config::SubConfig {
                     content: "syntex error".to_string(),
                     color: "#ff0000".to_string(),
@@ -42,9 +43,11 @@ async fn main() {
             let config_url = send_config.url.replace("{starix.id}", &identifire);
             let config_thumb = send_config.thumb.replace("{starix.id}", &identifire);
             let config_content = send_config.post.content.replace("{starix.id}", &identifire);
+            let config_avatar = send_config.avatar.replace("{starix.id}", &identifire);
             client
                 .send(|message| {
                     message
+                        .avatar_url(&config_avatar)
                         .username(&config_name)
                         .content(&config_content)
                         .embed(|embed| {
@@ -68,9 +71,11 @@ async fn main() {
             let config_url = send_config.url.replace("{starix.id}", &identifire);
             let config_thumb = send_config.thumb.replace("{starix.id}", &identifire);
             let config_content = send_config.fix.content.replace("{starix.id}", &identifire);
+            let config_avatar = send_config.avatar.replace("{starix.id}", &identifire);
             client
                 .send(|message| {
                     message
+                        .avatar_url(&config_avatar)
                         .username(&config_name)
                         .content(&config_content)
                         .embed(|embed| {
