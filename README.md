@@ -55,12 +55,8 @@ jobs:
       run: |
         wget "https://f.5-23.dev/project/starix"
         chmod +x starix
-    - name: Create environment file
+    - name: run starix
       run: |
         export URI="${{ secrets.URI }}"
         ./starix
-
-    - name: Display the file content
-      run: |
-        cat Starix.toml
 ```
