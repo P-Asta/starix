@@ -30,8 +30,8 @@ async fn main() {
         .arg("-1")
         .output()
         .unwrap();
-    println!("comment: {:?}", comment.stdout);
     let commit_title = String::from_utf8_lossy(&comment.stdout);
+    println!("comment: {:?}", commit_title);
     match Token::parse(commit_title.to_string()) {
         Token::Post(identifire, description) => {
             let config_name = send_config.name.replace("{starix.id}", &identifire);
