@@ -3,8 +3,14 @@ use webhook::client::WebhookClient;
 mod toml_reader;
 #[tokio::main]
 async fn main() {
-    let config =
-        toml::from_str::<Config>(std::fs::read_to_string("Starix.toml").unwrap().as_str()).unwrap();
+    let config = toml::from_str::<Config>(
+        std::fs::read_to_string("Starix.toml")
+            .unwrap()
+            .as_str()
+            .replace("\\n", "\n")
+            .as_str(),
+    )
+    .unwrap();
     let client: WebhookClient = WebhookClient::new(&config.webhook.uri);
     client
         .send(|message| {
