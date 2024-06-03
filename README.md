@@ -20,6 +20,8 @@ url="https://blog.5-23.dev/p/{starix.id}/"
 thumb="https://blog.5-23.dev/p/{starix.id}/thumb.jpg"
 # webhook bot name
 name="Asta blog"
+# profile url
+avatar="https://avatars.githubusercontent.com/u/86705803?v=4"
 
 [post]
 content="@everyone `{starix.id}`가 올라왔어요!"
