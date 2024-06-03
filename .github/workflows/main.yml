@@ -13,14 +13,20 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: setting file
+    
+    - name: Install Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        override: true
+    - name: Build the project
       run: |
-        wget "https://f.5-23.dev/starix"
-        chmod +x ./starix
+        cargo build --release
+
     - name: Create environment file
       run: |
         echo "${{ secrets.HA }}" >> Starix.toml
-        ./starix
+        ./target/release/starix
 
     - name: Display the file content
       run: |
