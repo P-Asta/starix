@@ -8,7 +8,7 @@ upload(name): description
 post(name): description
 ```
 
-## fix
+## fix-conv
 ```fish
 fix(name): description
 ```
