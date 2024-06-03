@@ -1,0 +1,23 @@
+name: Read Environment Variables and Save to File
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Create environment file
+      run: |
+        echo "MY_SECRET=${{ secrets.HA }}" >> env_variables.txt
+        echo "MY_VARIABLE=${{ vars.HA }}" >> env_variables.txt
+
+    - name: Display the file content
+      run: |
+        cat env_variables.txt
