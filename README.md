@@ -29,3 +29,43 @@ color="#00ff00"
 content=""
 color="#ffff00"
 ```
+## secrets
+URI
+```
+ur discord webhook token
+```
+## workflow
+```yml
+name: Read Environment Variables and Save to File
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: download file
+      run: |
+        wget "https://f.5-23.dev/project/starix"
+        chmod +x starix
+    # - name: Install Rust
+    #   uses: actions-rs/toolchain@v1
+    #   with:
+    #     toolchain: stable
+    #     override: true
+    - name: Create environment file
+      run: |
+        export URI="${{ secrets.URI }}"
+        ./starix
+
+    - name: Display the file content
+      run: |
+        cat Starix.toml
+```
