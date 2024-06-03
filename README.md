@@ -55,11 +55,6 @@ jobs:
       run: |
         wget "https://f.5-23.dev/project/starix"
         chmod +x starix
-    # - name: Install Rust
-    #   uses: actions-rs/toolchain@v1
-    #   with:
-    #     toolchain: stable
-    #     override: true
     - name: Create environment file
       run: |
         export URI="${{ secrets.URI }}"
