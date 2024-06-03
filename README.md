@@ -43,7 +43,7 @@ name: Read Environment Variables and Save to File
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
@@ -59,6 +59,8 @@ jobs:
         chmod +x starix
     - name: run starix
       run: |
+        sleep 120
         export URI="${{ secrets.URI }}"
         ./starix
+
 ```
