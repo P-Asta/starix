@@ -8,7 +8,11 @@ pub enum Token {
 impl Token {
     pub fn parse(s: String) -> Self {
         let re = Regex::new(r#"^(\w+)(?:\(([\w-]*)\))?:\s(.+)$"#).unwrap();
-        let result = re.captures(&s).unwrap();
+        let result = re.captures(&s);
+        if result.is_none() {
+            return Self::None;
+        }
+        let result = result.unwrap();
         let token = result.get(1).unwrap().as_str();
         match token {
             "post" | "upload" => Self::Post(
