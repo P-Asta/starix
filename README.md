@@ -1,5 +1,6 @@
 # starix
 the github-blog bot(use discord webhook)
+<img width="701" alt="image" src="https://github.com/5-23/starix/assets/86705803/46674cac-f4ce-4c09-928f-a2498db0fc19">
 
 ## post-conv
 ```fish
